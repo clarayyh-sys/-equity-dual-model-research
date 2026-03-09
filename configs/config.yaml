@@ -37,3 +37,7 @@ backtest:
   limit_up_down: true
   exclude_st: true
   exclude_suspended: true
+
+alerts:
+  highfreq_score_threshold: 0.16
+  highfreq_notify_channel: "+61432381511"
