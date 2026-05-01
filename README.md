@@ -1,4 +1,4 @@
-# A 股观察池"高开 + 二次启动"双模型联合量化策略
+# A-stock-equity-dual-model-research
 
 A research project for short-horizon equity selection on the China A-share market,
 combining two complementary supervised models with a strict out-of-sample
@@ -12,9 +12,9 @@ thresholds, training data, and live signals are kept private.**
 Two short-horizon events on China A-share watchpools have known statistical edge
 but are hard to capture with a single model:
 
-1. **二次启动 (second start)** — stocks rebounding after a pullback or
+1. **second start** — stocks rebounding after a pullback or
    consolidation, where an additional 5-day uptrend is likely.
-2. **高开 (next-day high open)** — stocks likely to gap up by ≥3% in the first
+2. **next-day high open** — stocks likely to gap up by ≥3% in the first
    ten minutes of the following trading session.
 
 Single models on either event are noisy and overfit easily. This project asks:
