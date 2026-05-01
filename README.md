@@ -1,4 +1,4 @@
-# A-stock-equity-dual-model-research
+# A-share equity dual-model research
 
 A research project for short-horizon equity selection on the China A-share market,
 combining two complementary supervised models with a strict out-of-sample
