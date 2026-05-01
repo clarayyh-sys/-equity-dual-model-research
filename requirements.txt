@@ -5,6 +5,6 @@ lightgbm>=4.3
 matplotlib>=3.8
 pyyaml>=6.0
 rich>=13.7
-# 可选数据源（按需安装）
-# akshare
-# tushare
+# 数据源
+tushare>=1.4
+# akshare  # 如后续需要可再加

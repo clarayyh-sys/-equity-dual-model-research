@@ -114,7 +114,7 @@ def main():
 
     out_md = root / "reports" / "highopen_analysis_masterpool.md"
     with out_md.open("w", encoding="utf-8") as f:
-        f.write("# 总池（20交易日窗口）高开分析（>3%）\n\n")
+        f.write("# 总池（30交易日窗口）高开分析（>3%）\n\n")
         f.write(f"总池股票数：{len(master_codes)}\n\n")
         f.write(f"可用样本对（date_t->date_t1）：{len(rows)}\n\n")
         f.write(f"P(次日高开>3%)：{p_pos:.3f}\n\n")

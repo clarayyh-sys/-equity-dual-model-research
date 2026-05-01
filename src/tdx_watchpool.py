@@ -9,6 +9,12 @@ from typing import Any, Iterable
 
 
 _DATE_RE = re.compile(r"(\d{8})")
+WATCHPOOL_PATTERNS = (
+    "观察池*.xls",
+    "观察池*.xlsx",
+    "临时条件股*.xls",
+    "临时条件股*.xlsx",
+)
 
 
 def _parse_date_from_name(name: str) -> dt.date | None:
@@ -24,7 +30,10 @@ def _clean_code(x: str) -> str:
     x = (x or "").strip()
     x = x.removeprefix("=")
     x = x.strip().strip('"').strip()
-    return x
+    # keep only 6-digit A-share codes
+    if re.fullmatch(r"\d{6}", x):
+        return x
+    return ""
 
 
 def _to_float(x: str) -> float | None:
@@ -110,7 +119,8 @@ def iter_watchpool_files(paths: Iterable[str | pathlib.Path]) -> list[pathlib.Pa
     for p in paths:
         pth = pathlib.Path(p)
         if pth.is_dir():
-            out.extend(sorted(pth.glob("观察池*.xls")))
+            for pattern in WATCHPOOL_PATTERNS:
+                out.extend(sorted(pth.glob(pattern)))
         else:
             out.append(pth)
-    return out
+    return sorted(set(out))

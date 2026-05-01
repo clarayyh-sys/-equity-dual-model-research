@@ -3,7 +3,7 @@
 Steps:
 1) Sync new TDX exports from /mnt/c/tdx_export -> data/raw/tdx_export
 2) Integrate watchpool history
-3) Build master pool with 20 trading-day retention (added-since-prev-day)
+3) Build master pool with 30 trading-day retention (added-since-prev-day)
 4) Re-run high-open analysis (master pool, >3%)
 5) Pick today's Top10 HF watch list (heuristic)
 

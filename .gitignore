@@ -1,8 +1,128 @@
+# ─────────────────────────────────────────────
+# Data — never commit (data/reports are symlinks, also handle bare names)
+# ─────────────────────────────────────────────
+data
+data/
+*.csv
+*.bak
+*.parquet
+*.feather
+*.h5
+*.hdf5
+*.pkl
+*.pickle
+
+# tmp data files dropped at repo root by daily pipeline
+tmp_*.csv
+tmp_*.json
+moneyflow_*.csv
+moneyflow_*.csv.bak
+overheat_*.csv
+
+# ─────────────────────────────────────────────
+# Credentials / secrets / configs
+# ─────────────────────────────────────────────
+.env
+.env.*
+*_secrets.*
+*secret*
+*token*
+tushare_token*
+
+# strategy parameters live in configs — never commit
+config/
+configs/
+*.yaml
+*.yml
+*.json
+
+# ─────────────────────────────────────────────
+# Model artifacts / training products
+# ─────────────────────────────────────────────
+models/
+artifacts/
+checkpoints/
+*.joblib
+*.pt
+*.bin
+*.onnx
+*.txt.model
+
+# ─────────────────────────────────────────────
+# Live outputs / experiment products
+# ─────────────────────────────────────────────
+reports
+reports/
+results/
+logs/
+backups/
+notebooks/
+
+# ─────────────────────────────────────────────
+# Python / system
+# ─────────────────────────────────────────────
 __pycache__/
 *.pyc
+*.pyo
 .venv/
-.env
+venv/
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.egg-info/
+
+# ─────────────────────────────────────────────
+# IDE / OS
+# ─────────────────────────────────────────────
 .DS_Store
-data/raw/**
-data/processed/**
-reports/**
+.idea/
+.vscode/
+*.swp
+*~
+
+# ─────────────────────────────────────────────
+# src/ files containing tuned thresholds / magic numbers (Plan A)
+# These reveal alpha — keep private
+# ─────────────────────────────────────────────
+src/highopen_holdout_test.py
+src/highopen_three_agent_pipeline.py
+src/highopen_experiment_runner.py
+src/highopen_multiday_dataset.py
+src/second_start_restart_predict.py
+src/second_start_restart_dataset.py
+src/second_start_restart_pipeline.py
+src/second_start_baseline.py
+src/second_start_signal.py
+
+# ─────────────────────────────────────────────
+# scripts/ — all tuning experiments and orchestrators carry magic numbers
+# ─────────────────────────────────────────────
+scripts/
+
+# ─────────────────────────────────────────────
+# Internal project notes / certs / one-off prompts — keep private
+# ─────────────────────────────────────────────
+CLAUDE.md
+certs/
+prompts/
+*_reply.txt
+deepseek_reply.txt
+
+# ─────────────────────────────────────────────
+# docs/ that reveal specific alpha (factor lists / thresholds / step recipes)
+# Allow methodology-only docs via explicit un-ignore below
+# ─────────────────────────────────────────────
+docs/highopen_model_spec.md
+docs/openclaw_daily_task.md
+docs/highfreq_watchlist_workflow.md
+docs/data_fetch_paths.md
+
+# ─────────────────────────────────────────────
+# Allow these safe meta files
+# ─────────────────────────────────────────────
+!.gitignore
+!requirements.txt
+!README.md
